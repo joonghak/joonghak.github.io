@@ -39,10 +39,10 @@ const presentation = sitePath('documents/raspberry-pi-presentation.pdf');
 
     <section aria-labelledby="game-title">
       <h2 id="game-title">게임 로직</h2>
-      <ul class="points"><li>이동·공격·폭탄·방어막·상태 변화 이펙트 구현</li><li>터미널 프로토타입 제작 후 실제 장치 연동</li></ul>
+      <ul class="points"><li>이동, 공격, 폭탄, 방어막과 상태 변화 이펙트 구현</li><li>터미널 프로토타입 제작 후 실제 장치 연동</li></ul>
       <dl class="technical">
         <div><dt>객체</dt><dd>Player · Bullet · Shield · Effect</dd></div>
-        <div><dt>구조</dt><dd>ObjectManager — 이동·충돌·상태 갱신<br />GameManager — 입력 처리·게임 루프·화면 전송</dd></div>
+        <div><dt>구조</dt><dd>ObjectManager — 이동, 충돌, 상태 갱신<br />GameManager — 입력 처리, 게임 루프, 화면 전송</dd></div>
       </dl>
     </section>
 
@@ -50,18 +50,18 @@ const presentation = sitePath('documents/raspberry-pi-presentation.pdf');
       <h2 id="system-title">시스템 구성</h2>
       <ol class="flow">
         <li><span>01</span><div><h3>컨트롤러 두 대</h3><p>입력 종류와 센서값 전달</p></div></li>
-        <li><span>02</span><div><h3>게임 서버</h3><p>이동·충돌·상태 갱신과 화면 데이터 생성</p></div></li>
+        <li><span>02</span><div><h3>게임 서버</h3><p>이동, 충돌, 상태 갱신과 화면 데이터 생성</p></div></li>
         <li><span>03</span><div><h3>32 × 64 LED 패널</h3><p>화면 배열을 해석하고 변경된 위치 출력</p></div></li>
       </ol>
-      <p class="compact-note">서버 → 컨트롤러: 체력·폭탄·방어막 쿨타임 전달</p>
+      <p class="compact-note">서버 → 컨트롤러: 체력, 폭탄, 방어막 쿨타임 전달</p>
     </section>
 
     <section aria-labelledby="debug-title">
       <h2 id="debug-title">통합 디버깅</h2>
       <dl class="technical">
         <div><dt>문제</dt><dd>LED 패널의 캐릭터 좌표 반영 지연</dd></div>
-        <div><dt>작업</dt><dd>팀원들과 송수신 흐름·버퍼 상태 추적 및 장치 연결 확인</dd></div>
-        <div><dt>결과</dt><dd>컨트롤러 입력·게임 상태·LED 출력을 연결한 대전 게임 완성</dd></div>
+        <div><dt>작업</dt><dd>팀원들과 송수신 흐름과 버퍼 상태를 추적하고 장치 연결 확인</dd></div>
+        <div><dt>결과</dt><dd>컨트롤러 입력과 게임 상태, LED 출력을 연결한 대전 게임 완성</dd></div>
       </dl>
     </section>
   </div>
