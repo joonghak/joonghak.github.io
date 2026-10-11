@@ -1,0 +1,21 @@
+---
+import Arrow from './Arrow.astro';
+import type { Activity } from '../data/portfolio';
+interface Props { activity: Activity }
+const { activity } = Astro.props;
+const lastSpace = activity.title.lastIndexOf(' ');
+const titlePrefix = activity.title.slice(0, lastSpace + 1);
+const titleEnding = activity.title.slice(lastSpace + 1);
+---
+<article class="activity-record">
+  <header class="record-header">
+    <h3>{activity.url ? <a class="record-title-link" href={activity.url} target="_blank" rel="noopener noreferrer" aria-label={`${activity.title} 홈페이지 (새 탭)`}>{titlePrefix}<span class="link-ending">{titleEnding}<Arrow /></span></a> : activity.title}</h3>
+    <span class="record-period">{activity.period}</span>
+  </header>
+  {activity.role && <p class="record-role">{activity.role}</p>}
+  {activity.profiles && <div class="record-profiles">{activity.profiles.map(profile => <p class:list={['record-profile', `profile-${profile.color}`]}>
+    <span class="profile-platform">{profile.platform}</span>
+    <a class="profile-account" href={profile.url} target="_blank" rel="noopener noreferrer" aria-label={`${profile.platform} ${profile.handle} 프로필 (새 탭)`}>{profile.handle}<Arrow /></a>
+  </p>)}</div>}
+  {activity.events && <ul class="contest-events">{activity.events.map(event => <li><span>{event.title}</span><span>{event.period}</span></li>)}</ul>}
+</article>

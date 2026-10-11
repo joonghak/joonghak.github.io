@@ -1,0 +1,18 @@
+---
+import Arrow from './Arrow.astro';
+import type { Project } from '../data/portfolio';
+import { sitePath } from '../lib/paths';
+interface Props { project: Project }
+const { project } = Astro.props;
+---
+<article class="project-summary">
+  <p class="project-meta"><span>{project.period}</span><span>{project.context}</span></p>
+  <h3><a class="project-title" href={sitePath(`projects/${project.slug}/`)}>{project.title}<Arrow direction="right" /></a></h3>
+  <p class="project-description">{project.summary}</p>
+  <p class="project-role"><span>담당</span>{project.role}</p>
+  <ul class="points">{project.contributions.map(item => <li>{item}</li>)}</ul>
+  <div class="project-links">
+    <p class="technologies">{project.technologies.join(' · ')}</p>
+    <a class="source-link" href={project.repository} target="_blank" rel="noopener noreferrer" aria-label={`${project.shortTitle} GitHub 저장소 (새 탭)`}>GitHub<Arrow /></a>
+  </div>
+</article>

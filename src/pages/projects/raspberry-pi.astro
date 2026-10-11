@@ -1,0 +1,68 @@
+---
+import SiteLayout from '../../layouts/SiteLayout.astro';
+import Arrow from '../../components/Arrow.astro';
+import { projects } from '../../data/portfolio';
+import { sitePath } from '../../lib/paths';
+const project = projects[1];
+const demoVideo = sitePath('media/raspberry-pi-demo.mp4');
+const demoPoster = sitePath('media/raspberry-pi-demo.jpg');
+const presentation = sitePath('documents/raspberry-pi-presentation.pdf');
+---
+<SiteLayout title="Raspberry Pi 대전 슈팅게임 — 이종학 포트폴리오" description="Raspberry Pi 4대와 LED 패널을 연결한 2인 대전 게임. 게임 로직, 시스템 구성과 통합 디버깅." detail>
+  <header class="project-header">
+    <p class="overline">{project.context} · {project.period}</p>
+    <h1>{project.shortTitle}</h1>
+    <p class="lead">Raspberry Pi 4대와 32 × 64 LED 패널을 연결한 2인 대전 게임</p>
+    <dl class="facts">
+      <div><dt>담당</dt><dd>{project.role}</dd></div>
+      <div><dt>구성</dt><dd>컨트롤러 2대 · 게임 서버 1대 · LED 출력 1대</dd></div>
+      <div><dt>기술</dt><dd>{project.technologies.join(' · ')}</dd></div>
+    </dl>
+    <div class="project-references">
+      <a class="source-link" href={project.repository} target="_blank" rel="noopener noreferrer">프로젝트 저장소<Arrow /></a>
+      <a class="source-link" href={presentation} target="_blank" rel="noopener noreferrer">발표자료 (PDF)<Arrow /></a>
+    </div>
+  </header>
+
+  <div class="project-body">
+    <section class="project-demo" aria-labelledby="demo-title">
+      <h2 id="demo-title">시연 영상</h2>
+      <figure class="demo-media">
+        <video controls playsinline preload="none" poster={demoPoster} aria-label="Raspberry Pi 대전 슈팅게임 시연 영상">
+          <source src={demoVideo} type="video/mp4" />
+          <a href={demoVideo}>시연 영상 보기</a>
+        </video>
+        <img class="demo-print-poster" src={demoPoster} alt="LED 패널에서 실행 중인 2인 대전 슈팅게임" width="1280" height="720" loading="lazy" />
+        <figcaption><a class="source-link" href={demoVideo} target="_blank" rel="noopener noreferrer">영상 파일<Arrow /></a><span>1분 50초</span></figcaption>
+      </figure>
+    </section>
+
+    <section aria-labelledby="game-title">
+      <h2 id="game-title">게임 로직</h2>
+      <ul class="points"><li>이동·공격·폭탄·방어막·상태 변화 이펙트 구현</li><li>터미널 프로토타입 제작 후 실제 장치 연동</li></ul>
+      <dl class="technical">
+        <div><dt>객체</dt><dd>Player · Bullet · Shield · Effect</dd></div>
+        <div><dt>구조</dt><dd>ObjectManager — 이동·충돌·상태 갱신<br />GameManager — 입력 처리·게임 루프·화면 전송</dd></div>
+      </dl>
+    </section>
+
+    <section aria-labelledby="system-title">
+      <h2 id="system-title">시스템 구성</h2>
+      <ol class="flow">
+        <li><span>01</span><div><h3>컨트롤러 두 대</h3><p>입력 종류와 센서값 전달</p></div></li>
+        <li><span>02</span><div><h3>게임 서버</h3><p>이동·충돌·상태 갱신과 화면 데이터 생성</p></div></li>
+        <li><span>03</span><div><h3>32 × 64 LED 패널</h3><p>화면 배열을 해석하고 변경된 위치 출력</p></div></li>
+      </ol>
+      <p class="compact-note">서버 → 컨트롤러: 체력·폭탄·방어막 쿨타임 전달</p>
+    </section>
+
+    <section aria-labelledby="debug-title">
+      <h2 id="debug-title">통합 디버깅</h2>
+      <dl class="technical">
+        <div><dt>문제</dt><dd>LED 패널의 캐릭터 좌표 반영 지연</dd></div>
+        <div><dt>작업</dt><dd>팀원들과 송수신 흐름·버퍼 상태 추적 및 장치 연결 확인</dd></div>
+        <div><dt>결과</dt><dd>컨트롤러 입력·게임 상태·LED 출력을 연결한 대전 게임 완성</dd></div>
+      </dl>
+    </section>
+  </div>
+</SiteLayout>

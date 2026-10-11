@@ -1,0 +1,52 @@
+---
+import SiteLayout from '../layouts/SiteLayout.astro';
+import ProjectSummary from '../components/ProjectSummary.astro';
+import ActivityRecord from '../components/ActivityRecord.astro';
+import Arrow from '../components/Arrow.astro';
+import { profile, skills, projects, awards, activities, education } from '../data/portfolio';
+---
+<SiteLayout>
+  <header class="intro">
+    <div class="intro-heading">
+      <h1>{profile.name}</h1>
+      <div class="profile-links">
+        <a class="profile-link" href={`mailto:${profile.email}`}>{profile.email}</a>
+        <a class="profile-link" href={profile.github} target="_blank" rel="noopener noreferrer" aria-label={`GitHub ${profile.githubHandle} 프로필 (새 탭)`}>GitHub · {profile.githubHandle}<Arrow /></a>
+      </div>
+    </div>
+    <p class="lead">{profile.focus}</p>
+    <div class="education-profile" aria-label="학력">
+      <div class="record-header"><h2>{profile.school}</h2><span class="record-period">{profile.educationPeriod}</span></div>
+      <dl class="education-grades"><div><dt>전체 학점</dt><dd>{profile.gpa}</dd></div><div><dt>전공 학점</dt><dd>{profile.majorGpa}</dd></div></dl>
+    </div>
+  </header>
+
+  <section id="skills" class="home-section skills-section" aria-labelledby="skills-title">
+    <h2 id="skills-title" class="section-label">기술</h2>
+    <dl class="skills-list">{skills.map(group => <div><dt>{group.label}</dt><dd>{group.values.join(' · ')}</dd></div>)}</dl>
+  </section>
+
+  <section id="projects" class="home-section" aria-labelledby="projects-title">
+    <h2 id="projects-title" class="section-label">프로젝트</h2>
+    <div>{projects.map(project => <ProjectSummary project={project} />)}</div>
+  </section>
+
+  <section id="awards" class="home-section awards-section" aria-labelledby="awards-title">
+    <h2 id="awards-title" class="section-label">수상</h2>
+    <div>
+      <ul class="award-list">
+        {awards.map(item => <li><div><p class="award-title">{item.title} <strong>{item.result}</strong></p>{item.note && <p class="award-note">{item.note}</p>}</div><span class="record-period">{item.period}</span></li>)}
+      </ul>
+    </div>
+  </section>
+
+  <section id="activities" class="home-section activities-section" aria-labelledby="activities-title">
+    <h2 id="activities-title" class="section-label">활동</h2>
+    <div class="records">{activities.map(activity => <ActivityRecord activity={activity} />)}</div>
+  </section>
+
+  <section id="education" class="home-section education-section" aria-labelledby="education-title">
+    <h2 id="education-title" class="section-label">교육·연수</h2>
+    <div class="records">{education.map(activity => <ActivityRecord activity={activity} />)}</div>
+  </section>
+</SiteLayout>
