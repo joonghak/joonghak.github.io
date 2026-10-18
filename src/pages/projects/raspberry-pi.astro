@@ -12,11 +12,12 @@ const presentation = sitePath('documents/raspberry-pi-presentation.pdf');
   <header class="project-header">
     <p class="overline">{project.context} · {project.period}</p>
     <h1>{project.shortTitle}</h1>
-    <p class="lead">Raspberry Pi 4대와 32 × 64 LED 패널을 연결한 2인 대전 게임</p>
+    <p class="lead">Raspberry Pi 4대와 64 × 32 LED 패널을 연결한 2인 대전 슈팅게임. 두 컨트롤러의 입력을 게임 서버에서 처리하며, 상대의 체력을 모두 소진시키면 승리합니다.</p>
     <dl class="facts">
       <div><dt>담당</dt><dd>{project.role}</dd></div>
       <div><dt>구성</dt><dd>컨트롤러 2대 · 게임 서버 1대 · LED 출력 1대</dd></div>
       <div><dt>기술</dt><dd>{project.technologies.join(' · ')}</dd></div>
+      <div><dt>결과</dt><dd>4대의 장치에서 입력, 게임 상태, 화면 출력을 연결한 2인 대전 게임 완성</dd></div>
     </dl>
     <div class="project-references">
       <a class="source-link" href={project.repository} target="_blank" rel="noopener noreferrer">프로젝트 저장소<Arrow /></a>
@@ -37,32 +38,45 @@ const presentation = sitePath('documents/raspberry-pi-presentation.pdf');
       </figure>
     </section>
 
-    <section aria-labelledby="game-title">
-      <h2 id="game-title">게임 로직</h2>
-      <ul class="points"><li>이동, 공격, 폭탄, 방어막과 상태 변화 이펙트 구현</li><li>터미널 프로토타입 제작 후 실제 장치 연동</li></ul>
-      <dl class="technical">
-        <div><dt>객체</dt><dd>Player · Bullet · Shield · Effect</dd></div>
-        <div><dt>구조</dt><dd>ObjectManager — 이동, 충돌, 상태 갱신<br />GameManager — 입력 처리, 게임 루프, 화면 전송</dd></div>
-      </dl>
+    <section class="project-chapter" aria-labelledby="development-title">
+      <h2 id="development-title">주요 기능 개발</h2>
+      <section class="project-feature" aria-labelledby="game-title">
+        <h3 id="game-title">게임 로직</h3>
+        <p>컨트롤러 입력을 받아 이동과 공격을 처리하고, 객체 상태와 충돌 결과를 화면에 반영하는 게임 로직을 구현했습니다. 터미널에서 동작을 확인한 뒤 팀원들이 개발한 컨트롤러와 LED 출력 장치에 연결했습니다.</p>
+        <ul class="points">
+          <li>C++로 Player, Bullet, Shield, Effect의 상태와 생명주기를 관리하고, 이동, 공격, 폭탄, 방어막과 충돌 판정 구현</li>
+          <li>Object Pool을 적용해 탄환과 이펙트 객체를 재사용하여, 반복적인 객체 생성과 메모리 할당 비용 절감</li>
+          <li>객체 갱신과 충돌 처리를 입력 처리 및 전체 게임 루프와 분리</li>
+          <li>디스플레이의 수신 버퍼와 이전 화면 버퍼를 분리하고, 두 버퍼를 비교해 변경된 픽셀만 LED에 반영</li>
+        </ul>
+        <dl class="technical game-structure">
+          <div><dt>게임 루프</dt><dd>컨트롤러 입력 처리 → 객체 상태 갱신과 충돌 판정 → 화면과 플레이어 상태 전송</dd></div>
+          <div><dt>화면 전송</dt><dd>게임 상태는 일정 주기로 갱신하고, 화면과 플레이어 상태의 소켓 전송 주기를 별도로 조절</dd></div>
+        </dl>
+      </section>
+
+      <section class="project-feature" aria-labelledby="system-title">
+        <h3 id="system-title">시스템 구성</h3>
+        <ol class="flow">
+          <li><span>01</span><div><h4>컨트롤러 두 대</h4><p>입력 종류와 센서값 전달</p></div></li>
+          <li><span>02</span><div><h4>게임 서버</h4><p>이동, 충돌, 상태 갱신과 화면 데이터 생성</p></div></li>
+          <li><span>03</span><div><h4>64 × 32 LED 패널</h4><p>화면 배열을 해석하고 변경된 픽셀 출력</p></div></li>
+        </ol>
+        <p class="compact-note">서버 → 컨트롤러: 체력, 폭탄, 방어막 쿨타임 전달</p>
+      </section>
     </section>
 
-    <section aria-labelledby="system-title">
-      <h2 id="system-title">시스템 구성</h2>
-      <ol class="flow">
-        <li><span>01</span><div><h3>컨트롤러 두 대</h3><p>입력 종류와 센서값 전달</p></div></li>
-        <li><span>02</span><div><h3>게임 서버</h3><p>이동, 충돌, 상태 갱신과 화면 데이터 생성</p></div></li>
-        <li><span>03</span><div><h3>32 × 64 LED 패널</h3><p>화면 배열을 해석하고 변경된 위치 출력</p></div></li>
-      </ol>
-      <p class="compact-note">서버 → 컨트롤러: 체력, 폭탄, 방어막 쿨타임 전달</p>
-    </section>
-
-    <section aria-labelledby="debug-title">
-      <h2 id="debug-title">통합 디버깅</h2>
-      <dl class="technical">
-        <div><dt>문제</dt><dd>LED 패널의 캐릭터 좌표 반영 지연</dd></div>
-        <div><dt>작업</dt><dd>팀원들과 송수신 흐름과 버퍼 상태를 추적하고 장치 연결 확인</dd></div>
-        <div><dt>결과</dt><dd>컨트롤러 입력과 게임 상태, LED 출력을 연결한 대전 게임 완성</dd></div>
-      </dl>
+    <section class="project-chapter" aria-labelledby="debug-title">
+      <h2 id="debug-title">트러블슈팅</h2>
+      <article class="project-case">
+        <h3>LED 화면에서 좌표가 밀리는 문제</h3>
+        <p>실제 장치를 연결했을 때 LED 화면에서 게임 객체의 좌표가 밀리는 문제가 발생했습니다.</p>
+        <dl class="technical technical-extended">
+          <div><dt>원인</dt><dd>수신한 데이터를 바로 화면 배열에 사용하면서 프레임 경계를 처리하지 않았습니다. 한 번의 수신이 한 프레임과 일치하지 않아도 그대로 해석해, 화면 배열에서 좌표가 어긋났습니다.</dd></div>
+          <div><dt>조치</dt><dd>화면 데이터의 송신 주기를 늦췄고, 당시 실기기에서 좌표가 밀리는 증상은 사라졌습니다.</dd></div>
+          <div><dt>한계</dt><dd>프레임 경계 처리 누락을 수정한 것은 아니므로 임시 조치였습니다. 근본적으로는 정해진 프레임 길이만큼 데이터를 누적 수신하고, 완성된 프레임만 화면에 반영하는 처리가 필요했습니다.</dd></div>
+        </dl>
+      </article>
     </section>
   </div>
 </SiteLayout>

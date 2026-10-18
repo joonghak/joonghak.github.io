@@ -156,6 +156,11 @@ h3 { font-size: 17px; line-height: 1.55; font-weight: 600; letter-spacing: -.3px
 .project-body section { margin-top: 30px; }
 .project-body h2 { font-size: 19px; font-weight: 600; line-height: 1.55; letter-spacing: -.4px; margin-bottom: 15px; }
 .project-body p { color: var(--body); }
+.project-body > .project-chapter { margin-top: 36px; }
+.project-body > .project-chapter + .project-chapter { margin-top: 42px; padding-top: 28px; border-top: 1px solid var(--rule); }
+.project-body .project-chapter > h2 { font-size: 26px; font-weight: 650; margin-bottom: 24px; }
+.project-chapter > .project-feature:first-of-type { margin-top: 0; }
+.project-feature > h3, .project-chapter > .project-case > h3 { font-size: 19px; font-weight: 600; line-height: 1.55; letter-spacing: -.4px; margin-bottom: 15px; }
 .demo-media { margin: 0; }
 .demo-media video { display: block; width: 100%; aspect-ratio: 16 / 9; background: var(--ink); }
 .demo-print-poster { display: none; }
@@ -164,6 +169,12 @@ h3 { font-size: 17px; line-height: 1.55; font-weight: 600; letter-spacing: -.3px
 .technical > div { display: grid; grid-template-columns: 40px minmax(0, 1fr); gap: 13px; padding: 10px 0; border-bottom: 1px solid var(--rule-soft); }
 .technical dt { font-size: 12px; color: var(--muted); }
 .technical dd { color: var(--body); }
+.game-structure > div { grid-template-columns: 72px minmax(0, 1fr); }
+.technical-extended > div { grid-template-columns: 72px minmax(0, 1fr); }
+.project-case + .project-case { margin-top: 24px; }
+.project-case h3 { font-size: 16px; margin-bottom: 8px; }
+.project-case h4 { font-size: 15px; font-weight: 600; line-height: 1.55; margin: 20px 0 8px; }
+.project-case code { overflow-wrap: anywhere; font-size: .9em; }
 .result { background: var(--accent-soft); padding: 17px 22px; margin: 20px 0; border-left: 2px solid var(--accent); }
 .result > span { font-size: 12px; color: var(--muted); }
 .result p { display: flex; align-items: center; flex-wrap: wrap; gap: 18px; margin-top: 4px; font-size: 23px; line-height: 1.5; color: var(--ink); }
@@ -178,7 +189,7 @@ h3 { font-size: 17px; line-height: 1.55; font-weight: 600; letter-spacing: -.3px
 .flow { list-style: none; padding: 0; margin: 20px 0; border-top: 1px solid var(--rule); }
 .flow li { display: flex; gap: 18px; padding: 13px 0; border-bottom: 1px solid var(--rule); }
 .flow li > span { font-size: 11px; color: var(--muted); padding-top: 4px; font-variant-numeric: tabular-nums; }
-.flow h3 { font-size: 14px; }
+.flow h3, .flow h4 { margin: 0; font-size: 14px; font-weight: 600; line-height: 1.55; letter-spacing: -.3px; }
 .flow p, .compact-note { font-size: 13px; }
 
 @media (max-width: 620px) {

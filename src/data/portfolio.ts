@@ -13,7 +13,7 @@ export const profile = {
 
 export const skills = [
   { label: '언어', values: ['C++', 'Python'] },
-  { label: '프레임워크', values: ['ROS 2'] },
+  { label: '프레임워크', values: ['ROS2'] },
   { label: '개발 도구', values: ['Linux', 'Git', 'Jira'] },
 ];
 
@@ -33,18 +33,18 @@ export interface Project {
 export const projects: Project[] = [
   {
     slug: 'malbut',
-    title: '말벗 — ROS 2 반려로봇',
+    title: '말벗 — ROS2 반려로봇',
     shortTitle: '말벗',
     period: '2026.05 — 진행 중',
     context: '소프트웨어마에스트로 · 3인 팀',
-    summary: '음성 대화, 자율주행, 홈 모니터링을 지원하는 ROS 2 반려로봇',
-    role: '로봇 런타임, 실기기 통합, 사람 추적',
+    summary: '음성 대화, 자율주행, 홈 모니터링을 지원하는 ROS2 반려로봇',
+    role: '로봇 런타임, 사람 추적, 실기기 통합, 시뮬레이션과 측정 도구',
     contributions: [
-      'Manifest 기반 미션 실행과 취소, 우선순위에 따른 자원 중재',
-      '준비 상태 검사와 Lifecycle 복구를 포함한 단계별 Bringup',
-      'Fast DDS 통신 문제를 분석하고 실기기 관측 도구와 로그 뷰어 개발',
+      '팀 협의로 기능별 책임과 공통 인터페이스를 정리하고 미션 실행과 취소, 자원 중재 구현',
+      'RGB-D와 LiDAR 관측을 연결한 사람 추적, 기능별 Launch와 실기기 Bringup 구성',
+      'Fast DDS 정지 문제 해결, SHM 설정 변경 후 실기기 RGB 영상 평균 약 10 Hz 수신 확인',
     ],
-    technologies: ['ROS 2', 'Python', 'C++', 'Nav2', 'Fast DDS', 'Gazebo'],
+    technologies: ['ROS2', 'Python', 'C++', 'Nav2', 'Fast DDS', 'Gazebo'],
     repository: 'https://github.com/SWM-malbut/malbut',
   },
   {
@@ -54,12 +54,13 @@ export const projects: Project[] = [
     period: '2024.11',
     context: '시스템프로그래밍 · 4인 팀',
     summary: 'Raspberry Pi 4대와 LED 패널을 연결한 2인 대전 게임',
-    role: '주요 게임 로직, 장치 연동, 통합 디버깅',
+    role: '주요 게임 로직, 장치 연동, 팀원들과 통합 디버깅',
     contributions: [
-      '이동, 공격, 폭탄, 방어막 기능과 게임 상태 갱신 구현',
-      '송수신 흐름과 버퍼를 추적해 좌표 반영 지연 해결',
+      '게임 객체의 상태와 생명주기 관리, Object Pool로 객체 생성과 메모리 할당 비용 절감',
+      '게임 루프와 화면 전송 주기를 나눠 구현하고 컨트롤러와 LED 출력 장치 연동',
+      '프레임 경계 처리 누락을 확인하고 송신 주기 조정으로 LED 좌표 밀림 증상 완화',
     ],
-    technologies: ['C++', 'Socket', 'Raspberry Pi', 'GPIO'],
+    technologies: ['C++', 'TCP Socket', 'pthread', 'Raspberry Pi', 'GPIO'],
     repository: 'https://github.com/joonghak/cpp-garaga',
   },
 ];
