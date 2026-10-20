@@ -156,6 +156,11 @@ h3 { font-size: 17px; line-height: 1.55; font-weight: 600; letter-spacing: -.3px
 .project-body section { margin-top: 30px; }
 .project-body h2 { font-size: 19px; font-weight: 600; line-height: 1.55; letter-spacing: -.4px; margin-bottom: 15px; }
 .project-body p { color: var(--body); }
+.project-figure { margin: 24px 0; }
+.project-figure a { display: block; cursor: zoom-in; }
+.project-figure img { display: block; width: 100%; height: auto; }
+.project-figure figcaption { margin-top: 8px; font-size: 12px; line-height: 1.6; color: var(--muted); }
+.project-robot { margin: 28px 0 36px; }
 .project-body > .project-chapter { margin-top: 36px; }
 .project-body > .project-chapter + .project-chapter { margin-top: 42px; padding-top: 28px; border-top: 1px solid var(--rule); }
 .project-body .project-chapter > h2 { font-size: 26px; font-weight: 650; margin-bottom: 24px; }
