@@ -1,6 +1,5 @@
 export const profile = {
   name: '이종학',
-  focus: '알고리즘 문제 해결',
   school: '아주대학교 소프트웨어학과',
   graduation: '2027년 2월 졸업 예정',
   gpa: '4.23 / 4.50',

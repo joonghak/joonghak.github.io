@@ -14,7 +14,6 @@ import { profile, skills, projects, awards, activities, education } from '../dat
         <a class="profile-link" href={profile.github} target="_blank" rel="noopener noreferrer" aria-label={`GitHub ${profile.githubHandle} 프로필 (새 탭)`}>GitHub · {profile.githubHandle}<Arrow /></a>
       </div>
     </div>
-    <p class="lead">{profile.focus}</p>
     <div class="education-profile" aria-label="학력">
       <div class="record-header"><h2>{profile.school}</h2><span class="record-period">{profile.educationPeriod}</span></div>
       <dl class="education-grades"><div><dt>전체 학점</dt><dd>{profile.gpa}</dd></div><div><dt>전공 학점</dt><dd>{profile.majorGpa}</dd></div></dl>
