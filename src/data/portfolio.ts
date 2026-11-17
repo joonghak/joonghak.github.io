@@ -72,10 +72,8 @@ export interface Award {
 }
 
 export const awards: Award[] = [
-  { title: '대학생 프로그래밍 경시대회 ICPC 예선', result: '교내 대상 · 1위', period: '2025.10', note: '아주대학교 · 3인 팀' },
   { title: '동아리·소학회·진로 콘테스트', result: '금상', period: '2025.05', note: 'ANSI 단체 수상' },
   { title: '제10회 경인지역 대학 연합 프로그래밍 경시대회 shake!', result: '장려상 · 7위', period: '2025.01', note: 'shake! 2024 · 개인전' },
-  { title: '대학생 프로그래밍 경시대회 ICPC 예선', result: '교내 대상 · 1위', period: '2024.10', note: '아주대학교 · 3인 팀' },
   { title: '아주대학교 프로그래밍 경시대회 APC', result: '대상 · 1위', period: '2024.06', note: 'Div.1 · 개인전' },
   { title: '잡다 개발자 경진대회 디챔스', result: '3위', period: '2023.10' },
 ];
