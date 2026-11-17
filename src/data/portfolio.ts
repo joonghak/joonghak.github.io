@@ -128,11 +128,10 @@ export const activities: Activity[] = [
   },
   {
     title: '국제 대학생 프로그래밍 경시대회 ICPC',
-    period: '2024 — 2025',
+    period: '2024 — 2026',
     events: [
-      { title: '2025 ICPC Asia Yokohama Regional Contest', period: '2025.12' },
+      { title: '2026 ICPC Asia Seoul Regional Contest (31위)', period: '2026.11' },
       { title: '2025 ICPC Asia Seoul Regional Contest', period: '2025.11' },
-      { title: '2024 ICPC Asia Jakarta Onsite Regional Contest', period: '2024.12' },
       { title: '2024 ICPC Asia Seoul Regional Contest', period: '2024.11' },
     ],
   },
