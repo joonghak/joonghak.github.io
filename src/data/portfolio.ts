@@ -37,7 +37,7 @@ export const projects: Project[] = [
     period: '2026.05 — 2026.11',
     context: '소프트웨어마에스트로 · 3인 팀',
     summary: '음성 대화, 자율주행, 홈 모니터링을 지원하는 ROS2 반려로봇',
-    role: 'ROS2 실행 관리자, 사람 추적, 하드웨어 포팅, Gazebo 시뮬레이션과 측정 도구',
+    role: '통합 실행 구조 구축, 통합 모니터링 도구 개발, 단일 보드 통합 및 안정화, 사람 추적',
     contributions: [
       '팀원과 기능별 역할 및 ROS2 인터페이스 정의, 미션 스케줄링과 Action 실행 및 취소 구현',
       'RGB-D와 LiDAR 기반 사람 추적 구현, 기능별 Launch 분리와 ROSOrin 하드웨어 포팅',
