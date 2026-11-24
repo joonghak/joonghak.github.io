@@ -105,18 +105,14 @@ export const activities: Activity[] = [
     ],
   },
   {
-    title: '아주대학교 네트워크 시스템 연구실',
-    role: '학부연구 스터디',
+    title: '아주대학교 네트워크 시스템 연구실 학부연구 스터디',
+    role: '네트워크 시스템 논문 분석 및 발표, Linux 커널 패킷 수신 코드에서 GRO 처리 흐름 추적',
     period: '2025.07 — 2025.09',
   },
   {
     title: 'NYPC 전략 프로그래밍',
     role: '예선 12위 / 832팀',
     period: '2026.07',
-  },
-  {
-    title: '삼성 대학생 프로그래밍 경진대회 SCPC',
-    period: '2025 · 2026',
   },
   {
     title: '국제 대학생 프로그래밍 경시대회 ICPC',
