@@ -84,7 +84,7 @@ export interface Activity {
   period?: string;
   url?: string;
   profiles?: { platform: string; handle: string; url: string; color: 'orange' | 'cyan' }[];
-  events?: { title: string; period: string; role?: string; topics?: string }[];
+  events?: { title: string; period: string; role?: string }[];
 }
 
 export const activities: Activity[] = [
@@ -100,8 +100,8 @@ export const activities: Activity[] = [
     title: '알고리즘 동아리 ANSI',
     period: '2024.03 — 현재',
     events: [
-      { title: '기초 알고리즘 스터디', role: '운영 및 강의', topics: '자료구조, 그래프 탐색', period: '2025.03 — 2025.12' },
-      { title: '심화 알고리즘 스터디', role: '운영 및 강의', topics: '비트 DP, 세그먼트 트리', period: '2026.03 — 2026.06' },
+      { title: '기초 알고리즘 스터디', role: '운영 및 강의', period: '2025.03 — 2025.12' },
+      { title: '심화 알고리즘 스터디', role: '운영 및 강의', period: '2026.03 — 2026.06' },
     ],
   },
   {
