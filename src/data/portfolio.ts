@@ -100,8 +100,7 @@ export const activities: Activity[] = [
     title: '알고리즘 동아리 ANSI',
     period: '2024.03 — 현재',
     events: [
-      { title: '기초 알고리즘 스터디', role: '운영 및 강의', period: '2025.03 — 2025.12' },
-      { title: '심화 알고리즘 스터디', role: '운영 및 강의', period: '2026.03 — 2026.06' },
+      { title: '기초, 심화 알고리즘 스터디 운영 및 강의', period: '2025.03 — 2026.06' },
     ],
   },
   {
