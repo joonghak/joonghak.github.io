@@ -34,7 +34,7 @@ export const projects: Project[] = [
     slug: 'malbut',
     title: '말벗 — ROS2 반려로봇',
     shortTitle: '말벗',
-    period: '2026.05 — 진행 중',
+    period: '2026.05 — 2026.11',
     context: '소프트웨어마에스트로 · 3인 팀',
     summary: '음성 대화, 자율주행, 홈 모니터링을 지원하는 ROS2 반려로봇',
     role: 'ROS2 실행 관리자, 사람 추적, 하드웨어 포팅, Gazebo 시뮬레이션과 측정 도구',
