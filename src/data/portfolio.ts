@@ -84,7 +84,7 @@ export interface Activity {
   period?: string;
   url?: string;
   profiles?: { platform: string; handle: string; url: string; color: 'orange' | 'cyan' }[];
-  events?: { title: string; period: string; role?: string; url?: string }[];
+  events?: { title: string; period: string; role?: string }[];
 }
 
 export const activities: Activity[] = [
@@ -92,15 +92,17 @@ export const activities: Activity[] = [
     title: '대회 운영',
     events: [
       { title: '아주대학교 프로그래밍 경시대회 APC', role: '총괄', period: '2025 · 2026' },
-      { title: '경인지역 대학 연합 프로그래밍 경시대회 shake!', role: '총괄', period: '2025 — 2026.01', url: 'https://shake.codes/' },
+      { title: '경인지역 대학 연합 프로그래밍 경시대회 shake!', role: '총괄', period: '2025 — 2026.01' },
       { title: '전국 대학생 프로그래밍 대회 동아리 연합 UCPC', role: '운영진', period: '2025.03 — 2026.08' },
     ],
   },
   {
     title: '알고리즘 동아리 ANSI',
-    role: '부회장 2025–2026',
     period: '2024.03 — 현재',
-    url: 'https://ansi.ajou.club/',
+    events: [
+      { title: '기초 알고리즘 스터디', period: '2025.03 — 2025.12' },
+      { title: '심화 알고리즘 스터디', period: '2026.03 — 2026.06' },
+    ],
   },
   {
     title: '아주대학교 네트워크 시스템 연구실',

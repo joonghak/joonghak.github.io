@@ -22,10 +22,8 @@ const titleEnding = activity.title.slice(lastSpace + 1);
       {activity.events.map(event => (
         <li>
           <span>
-            {event.url ? (
-              <a class="record-title-link" href={event.url} target="_blank" rel="noopener noreferrer" aria-label={`${event.title} 홈페이지 (새 탭)`}>{event.title}<Arrow /></a>
-            ) : event.title}
-            {event.role && ` ${event.role}`}
+            {event.title}
+            {event.role && <>{' '}<strong>{event.role}</strong></>}
           </span>
           <span>{event.period}</span>
         </li>
