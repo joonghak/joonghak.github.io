@@ -87,12 +87,18 @@ export interface Activity {
   events?: { title: string; period: string }[];
 }
 
-export const directedContests = [
-  { title: 'APC', period: '2025 · 2026' },
-  { title: 'shake!', period: '2025 — 2026.01', url: 'https://shake.codes/' },
-];
-
 export const activities: Activity[] = [
+  {
+    title: '아주대학교 프로그래밍 경시대회 APC',
+    role: '총괄',
+    period: '2025 · 2026',
+  },
+  {
+    title: '경인지역 대학 연합 프로그래밍 경시대회 shake!',
+    role: '총괄',
+    period: '2025 — 2026.01',
+    url: 'https://shake.codes/',
+  },
   {
     title: '전국 대학생 프로그래밍 대회 동아리 연합 UCPC',
     role: '운영진',

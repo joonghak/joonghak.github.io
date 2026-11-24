@@ -3,7 +3,7 @@ import SiteLayout from '../layouts/SiteLayout.astro';
 import ProjectSummary from '../components/ProjectSummary.astro';
 import ActivityRecord from '../components/ActivityRecord.astro';
 import Arrow from '../components/Arrow.astro';
-import { profile, skills, projects, awards, directedContests, activities, education } from '../data/portfolio';
+import { profile, skills, projects, awards, activities, education } from '../data/portfolio';
 ---
 <SiteLayout>
   <header class="intro">
@@ -41,27 +41,7 @@ import { profile, skills, projects, awards, directedContests, activities, educat
 
   <section id="activities" class="home-section activities-section" aria-labelledby="activities-title">
     <h2 id="activities-title" class="section-label">활동</h2>
-    <div class="records">
-      <article class="activity-record">
-        <header class="record-header">
-          <h3>
-            {directedContests.map((contest, index) => (
-              <Fragment>
-                {index > 0 && ', '}
-                <span class="link-ending">
-                  {contest.url ? (
-                    <a class="record-title-link" href={contest.url} target="_blank" rel="noopener noreferrer" aria-label="shake! 홈페이지 (새 탭)">{contest.title}<Arrow /></a>
-                  ) : contest.title}
-                  {' '}<span class="record-period">({contest.period})</span>
-                </span>
-              </Fragment>
-            ))}
-            {' '}총괄
-          </h3>
-        </header>
-      </article>
-      {activities.map(activity => <ActivityRecord activity={activity} />)}
-    </div>
+    <div class="records">{activities.map(activity => <ActivityRecord activity={activity} />)}</div>
   </section>
 
   <section id="education" class="home-section education-section" aria-labelledby="education-title">
