@@ -72,6 +72,7 @@ export interface Award {
 }
 
 export const awards: Award[] = [
+  { title: '충남대학교 SW-IT Contest', result: '동상', period: '2026.10', note: '팀 대회' },
   { title: '동아리·소학회·진로 콘테스트', result: '금상', period: '2025.05', note: 'ANSI 단체 수상' },
   { title: '제10회 경인지역 대학 연합 프로그래밍 경시대회 shake!', result: '장려상 · 7위', period: '2025.01', note: 'shake! 2024 · 개인전' },
   { title: '아주대학교 프로그래밍 경시대회 APC', result: '대상 · 1위', period: '2024.06', note: 'Div.1 · 개인전' },
