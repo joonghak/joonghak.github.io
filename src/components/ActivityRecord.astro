@@ -14,7 +14,7 @@ const titleEnding = activity.title.slice(lastSpace + 1);
   </header>
   {activity.role && <p class="record-role">{activity.role}</p>}
   {activity.profiles && <div class="record-profiles">{activity.profiles.map(profile => <p class:list={['record-profile', `profile-${profile.color}`]}>
-    <span class="profile-platform">{profile.platform}</span>
+    <span class="profile-platform">{profile.platform}{profile.result && ` ${profile.result}`}</span>
     <a class="profile-account" href={profile.url} target="_blank" rel="noopener noreferrer" aria-label={`${profile.platform} ${profile.handle} 프로필 (새 탭)`}>{profile.handle}<Arrow /></a>
   </p>)}</div>}
   {activity.events && (
