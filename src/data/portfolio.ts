@@ -12,7 +12,7 @@ export const profile = {
 
 export const skills = [
   { label: '언어', values: ['C++', 'Python'] },
-  { label: '프레임워크', values: ['ROS2'] },
+  { label: '프레임워크', values: ['ROS 2'] },
   { label: '개발 도구', values: ['Linux', 'Git', 'Jira'] },
 ];
 
@@ -32,34 +32,35 @@ export interface Project {
 export const projects: Project[] = [
   {
     slug: 'malbut',
-    title: '말벗 — ROS2 반려로봇',
+    title: '말벗 — ROS 2 반려로봇',
     shortTitle: '말벗',
     period: '2026.05 — 2026.11',
-    context: '소프트웨어마에스트로 · 3인 팀',
-    summary: '음성 대화, 자율주행, 홈 모니터링을 지원하는 ROS2 반려로봇',
+    context: 'AI·SW마에스트로 · 3인 팀',
+    summary: '음성 대화, 자율주행, 홈 모니터링을 지원하는 ROS 2 반려로봇',
     role: '통합 실행 구조 구축, 통합 모니터링 도구 개발, 단일 보드 통합 및 안정화, 사람 추적',
     contributions: [
-      '팀원과 기능별 역할 및 ROS2 인터페이스 정의, 미션 스케줄링과 Action 실행 및 취소 구현',
-      'RGB-D와 LiDAR 기반 사람 추적 구현, 기능별 Launch 분리와 ROSOrin 하드웨어 포팅',
-      'Fast DDS 교착 상태 조치, SHM 설정 변경 후 실기기 RGB 이미지 평균 약 10 Hz 수신 확인',
+      '상태 머신과 YAML 기능 명세를 도입해 추적, 순찰, 낙상 대응 등 15개 기능의 실행·취소·선점 정책 통합',
+      'CPU 사용률, 토픽 수신율, Action 상태를 같은 시간축에 기록하는 도구 개발. 낙상 감시 프로세스의 CPU 급등을 찾아 팀원과 공유',
+      '단일 Jetson 보드에서 구독 제어와 Fast DDS 설정을 조정해 대기 CPU 사용률 약 100% → 약 60%, RGB-D 수신율 6.7 Hz → 15 Hz로 개선',
+      'RGB-D와 2D LiDAR로 사람의 위치를 추정하고 Nav2와 연동해 추종 주행 구현',
     ],
-    technologies: ['ROS2', 'Python', 'C++', 'Nav2', 'Fast DDS', 'Gazebo'],
+    technologies: ['ROS 2', 'Python', 'C++', 'Nav2', 'Fast DDS', 'Gazebo'],
     repository: 'https://github.com/SWM-malbut/malbut',
   },
   {
     slug: 'raspberry-pi',
-    title: 'Raspberry Pi 대전 슈팅게임',
-    shortTitle: 'Raspberry Pi 대전 슈팅게임',
+    title: 'Galagon — Raspberry Pi 대전 슈팅게임',
+    shortTitle: 'Galagon',
     period: '2024.11',
     context: '시스템프로그래밍 · 4인 팀',
     summary: 'Raspberry Pi 4대를 TCP로 연결한 2인 대전 슈팅게임',
-    role: '주요 게임 로직 구현, 장치 연동, 팀원들과 송수신 코드 분석 및 통합 디버깅',
+    role: '게임 로직 구현, Object Pool과 고정 타임스텝 최적화, LED 화면 규격 공동 설계',
     contributions: [
-      '게임 객체의 상태와 생명주기 관리, Object Pool로 객체 생성과 메모리 할당 비용 절감',
-      '게임 업데이트 주기와 소켓 송신 주기 분리, 컨트롤러와 LED 출력 장치 연동',
-      '프레임 경계 처리 누락을 분석하고 송신 간격 조정으로 LED 좌표 밀림을 임시 완화',
+      'C++로 게임 서버의 입력 처리, 이동과 충돌 판정, 게임 객체의 상태와 생명주기 관리 구현',
+      'Object Pool로 탄환과 이펙트를 재사용하고, 1 ms 고정 타임스텝을 적용해 게임 갱신과 화면 송신 주기를 분리',
+      'LED 담당자와 64 × 32 화면 배열 및 색상 코드 규격을 합의하고, 이전 프레임과 달라진 픽셀만 갱신하도록 공동 설계',
     ],
-    technologies: ['C++', 'TCP Socket', 'pthread', 'Raspberry Pi', 'GPIO'],
+    technologies: ['C++', 'TCP Socket', 'Raspberry Pi', 'GPIO'],
     repository: 'https://github.com/joonghak/cpp-garaga',
   },
 ];
@@ -135,9 +136,9 @@ export const activities: Activity[] = [
 
 export const education: Activity[] = [
   {
-    title: '소프트웨어마에스트로 17기',
+    title: 'AI·SW마에스트로 17기',
     role: '연수생',
-    period: '2026 — 현재',
+    period: '2026.05 — 2026.11',
   },
   {
     title: '삼성전자 DX부문 동계 SW 역량 강화 특강',
