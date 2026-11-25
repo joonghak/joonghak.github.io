@@ -12,7 +12,7 @@ export const profile = {
 
 export const skills = [
   { label: '언어', values: ['C++', 'Python'] },
-  { label: '프레임워크', values: ['ROS 2'] },
+  { label: '프레임워크', values: ['ROS2'] },
   { label: '개발 도구', values: ['Linux', 'Git', 'Jira'] },
 ];
 
@@ -32,11 +32,11 @@ export interface Project {
 export const projects: Project[] = [
   {
     slug: 'malbut',
-    title: '말벗 - ROS 2 반려로봇',
+    title: '말벗 - ROS2 반려로봇',
     shortTitle: '말벗',
     period: '2026.05 - 2026.11',
     context: 'AI·SW마에스트로 · 3인 팀',
-    summary: '음성 대화, 자율주행, 홈 모니터링을 지원하는 ROS 2 반려로봇',
+    summary: '음성 대화, 자율주행, 홈 모니터링을 지원하는 ROS2 반려로봇',
     role: '통합 실행 구조 구축, 통합 모니터링 도구 개발, 단일 보드 통합 및 안정화, 사람 추적',
     contributions: [
       '상태 머신과 YAML 기능 명세를 도입해 추적, 순찰, 낙상 대응 등 15개 기능의 실행·취소·선점 정책 통합',
@@ -44,7 +44,7 @@ export const projects: Project[] = [
       '단일 Jetson 보드에서 구독 방식과 Fast DDS 설정을 조정해 대기 중 CPU 사용률과 RGB-D 수신율을 개선.',
       'RGB-D와 2D LiDAR로 사람의 위치를 추정하고 Nav2와 연동해 추종 주행 구현',
     ],
-    technologies: ['ROS 2', 'Python', 'C++', 'Nav2', 'Fast DDS', 'Gazebo'],
+    technologies: ['ROS2', 'Python', 'C++', 'Nav2', 'Fast DDS', 'Gazebo'],
     repository: 'https://github.com/SWM-malbut/malbut',
   },
   {
